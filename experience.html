@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Shaikh Abdul Moid</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            outline: none;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        html, body {
+            min-height: 100vh;
+        }
+        body {
+            background: #f0f0f0; /* Kept light background */
+            color: #333; /* Darker text for readability */
+            font-family: 'Palanquin Dark', sans-serif;
+            font-weight: 400;
+            position: relative;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 200px; /* Add this line */
+        }
+                h2 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .timeline {
+            width: 100%;
+            height: 4px;
+            list-style: none;
+            background: rgba(191,128,11,0.3);
+            margin: 80px 0;
+            padding: 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 84%;
+            right: 0;
+            height: 100%;
+            background: rgba(191,128,11,1);
+        }
+        
+        .timeline li {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #F2BB13;
+            text-align: center;
+            line-height: 1.2;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 50%;
+        }
+        
+        .timeline li:nth-child(1) { left: calc(84% - 10px); } /* March 2023 */
+        .timeline li:nth-child(2) { left: calc(73% - 10px); } /* April 2022 */
+        .timeline li:nth-child(3) { left: calc(63% - 10px); } /* September 2021 */
+        .timeline li:nth-child(4) { left: calc(25% - 10px); } /* July 2017 */
+        .timeline li:nth-child(5) { left: 0; } /* March 2015 */
+        
+        .timeline li:before {
+            content: attr(data-year);
+            width: 100px;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: rgba(191,128,11,1);
+        }
+        
+        .timeline li:after {
+            content: attr(data-text);
+            width: 150px;
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .timeline li:nth-child(even):before {
+            top: auto;
+            bottom: -30px;
+        }
+        
+        .timeline li:nth-child(even):after {
+            bottom: auto;
+            top: -30px;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            right: -30px;
+            top: -30px;
+            font-size: 14px;
+            color: rgba(191,128,11,1);
+        }
+        
+    </style>
+</head>
+<body>
+    <header class="custom-header bg-primary text-white text-center py-5">
+        <h1 class="display-4">Shaikh Abdul Moid</h1>
+        <p class="lead">Technical Lead</p>
+        <div class="mt-3">
+            <a href="https://www.linkedin.com/in/moidshaikh" class="text-white me-3" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
+            <a href="mailto:shaikhamoid777@gmail.com" class="text-white me-3"><i class="bi bi-envelope"></i> Email</a>
+            <a href="https://github.com/moidshaikh" class="text-white" target="_blank"><i class="bi bi-github"></i> GitHub</a>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experience.html">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="education.html">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!-- Timeline -->
+<div class="container">
+    <h2>Career Timeline</h2>
+    <ul class="timeline">
+        <li data-year="March 2023" data-text="Cisco (Wipro)"></li>
+        <li data-year="Aug 2022" data-text="Secomind"></li>
+        <li data-year="Sep 2021" data-text="Infobelt Inc"></li>
+        <li data-year="Jul 2017" data-text="Amazon"></li>
+        <li data-year="Mar 2015" data-text="S&P Capital"></li>
+    </ul>
+</div>
+    
+    <main class="container my-5">
+        <h2 class="border-bottom pb-2">Professional Experience</h2>
+
+        <!-- Technical Lead - Cisco -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Technical Lead - Cisco</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Wipro (Client: Cisco)</h6>
+                <p class="card-text">March 2023 – Present</p>
+                <p>March 2023 – August 2024: Worked on a contract basis with Buzzworks and Wipro for Cisco.<br>
+                August 2024 – Present: Transitioned to a permanent role with Wipro, continuing to work for Cisco.</p>
+                <ul>
+                    <li>Lead the development and architecture of RMS, a critical Cisco tool for creating cloud infrastructure services.</li>
+                    <li>Architected and led the development of backend services using Python and Golang, improving system performance by 20%.</li>
+                    <li>Mentored 6 developers within a team of 24, implementing Agile methodologies to enhance team efficiency and project outcomes.</li>
+                    <li>Worked on naas.cisco.com, Cisco’s Notification as a Service platform, and integrated NaaS into RMS, consolidating alerts and achieving a 40% reduction in costs.</li>
+                    <li>Contributed to Runon.cisco.com, a tool for IT infrastructure creation, used both internally and externally by Cisco.</li>
+                    <li>Maintained the Django REST API-based backend for RMS, adhering to best practices in software development and version control.</li>
+                    <li>Implemented best practices for code quality, testing, and documentation, leading to a 30% reduction in post-release issues.</li>
+                </ul>
+                <p><strong>Technologies:</strong> Python, Golang, Terraform, AWS, Kubernetes, Docker, ArgoCD, Jenkins, StackStorm, Darts, Django REST API</p>
+            </div>
+        </div>
+
+        <!-- Platform Engineer - Secomind AI -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Platform Engineer - Secomind AI</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Secomind AI</h6>
+                <p class="card-text">April 2022 – August 2022</p>
+                <ul>
+                    <li>Developed auto CI/CD pipelines with automated linting and testing, enhancing code quality and deployment efficiency.</li>
+                    <li>Created Terraform modules for consistent infrastructure setup, automating VPC, EC2, and RDS management.</li>
+                    <li>Standardized GitLab repository configurations and implemented automated linting, documentation, and testing to boost code quality and compliance.</li>
+                </ul>
+                <p><strong>Tech Stack:</strong> Python, Shell Scripting, Docker, Kubernetes, AWS, GitLab, Mezmo, Terraform, PowerBI</p>
+            </div>
+        </div>
+
+        <!-- Software Engineer 2 - Infobelt Inc -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Software Engineer 2 - Infobelt Inc</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Infobelt Inc</h6>
+                <p class="card-text">September 2021 - April 2022</p>
+
+                <!-- RegLib Project -->
+                <h6 class="card-subtitle mb-2 text-muted">RegLib – Regulatory PDF Parsing Solution</h6>
+                <ul>
+                    <li>Developed a comprehensive solution for parsing regulatory PDFs from diverse sources and languages.</li>
+                    <li>Designed and implemented features to enhance PDF parsing capabilities.</li>
+                    <li>Implemented asynchronous methods to efficiently fetch regulatory PDFs from multiple sources.</li>
+                    <li>Migrated a Flask-based Python scraper microservice to Go to improve performance and scalability.</li>
+                </ul>
+                <p><strong>Technologies:</strong> Python, Go, AWS S3, Flask, Docker</p>
+                
+                <!-- PASTEL Project -->
+                <h6 class="card-subtitle mb-2 text-muted">PASTEL – ETL Pipeline for Financial Data</h6>
+                <ul>
+                    <li>Built an ETL pipeline to transform financial data for generating insights and reports.</li>
+                    <li>Utilized cloud technologies to improve data processing and analytics.</li>
+                    <li>Enhanced the pipeline’s performance by optimizing data extraction and transformation processes.</li>
+                </ul>
+                <p><strong>Technologies:</strong> Python, AWS Lambda, AWS Glue, Docker</p>
+            </div>
+        </div>
+
+        <!-- Support Engineer - Amazon -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Support Engineer - Amazon</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Amazon</h6>
+                <p class="card-text">June 2017 – August 2021</p>
+                <ul>
+                    <li>Provided technical support and troubleshooting for Amazon Web Services (AWS) customers.</li>
+                    <li>Handled escalations and resolved complex technical issues related to AWS services.</li>
+                    <li>Developed internal tools and scripts to automate support processes and improve efficiency.</li>
+                </ul>
+                <p><strong>Technologies:</strong> Python, AWS</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light text-center py-4">
+        <p>&copy; 2024 Shaikh Abdul Moid</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

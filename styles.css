@@ -1,0 +1,17 @@
+/* <!-- styles.css --> */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+.custom-header {
+    background-color: #ff5733; /* Replace with your desired color */
+}
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badge {
+    font-size: 0.9rem;
+}
