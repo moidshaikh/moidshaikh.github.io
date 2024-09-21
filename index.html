@@ -116,7 +116,9 @@
         </footer>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-    <script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com"
         // Your Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyBc0UbzP-OK91yuKX4HhaQ8AfuwCSHaSPg",
@@ -129,8 +131,8 @@
         };
 
         // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
         async function updateCounter() {
             const counterRef = db.collection('counters').doc('visitorCount');
