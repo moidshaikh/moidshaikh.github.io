@@ -53,6 +53,71 @@
         </style>
     </head>
  <body>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+    
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBc0UbzP-OK91yuKX4HhaQ8AfuwCSHaSPg",
+            authDomain: "test-a2b85.firebaseapp.com",
+            projectId: "test-a2b85",
+            storageBucket: "test-a2b85.appspot.com",
+            messagingSenderId: "850862679736",
+            appId: "1:850862679736:web:eed66156c630c468f3764d",
+            measurementId: "G-481KY61310"
+        };
+
+         // Function to generate a unique user ID
+    function generateUserId() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+        });
+    }
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+
+        async function updateCounter() {
+            const counterRef = doc(db, 'counters', 'visitorCount');
+            const userId = localStorage.getItem('userId') || generateUserId();
+    
+            // Save the user ID in localStorage
+            if (!localStorage.getItem('userId')) {
+                localStorage.setItem('userId', userId);
+            }
+    
+            // Check if this user has been counted before
+            const userCountedBefore = localStorage.getItem('counted') === 'true';
+    
+            if (!userCountedBefore) {
+                // Get current count
+                const snapshot = await getDoc(counterRef);
+                let count = snapshot.exists() ? snapshot.data().count : 0;
+    
+                // Increment the count
+                count++;
+                await setDoc(counterRef, { count: count });
+    
+                // Mark this user as counted
+                localStorage.setItem('counted', 'true');
+    
+                console.log('New user counted');
+            } else {
+                console.log('Returning user, not incrementing count');
+            }
+    
+            // Update the displayed count
+            const updatedSnapshot = await getDoc(counterRef);
+            const currentCount = updatedSnapshot.exists() ? updatedSnapshot.data().count : 0;
+            document.getElementById('visitor-counter').innerText = `Unique Visitor Count: ${currentCount}`;
+        }
+    
+        window.onload = updateCounter;        
+    </script>
+    
     <header class="custom-header bg-primary text-white text-center">
         <div class="profile-image-container">
             <div class="profile-image">
@@ -116,41 +181,6 @@
         </footer>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com"
-        // Your Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBc0UbzP-OK91yuKX4HhaQ8AfuwCSHaSPg",
-            authDomain: "test-a2b85.firebaseapp.com",
-            projectId: "test-a2b85",
-            storageBucket: "test-a2b85.appspot.com",
-            messagingSenderId: "850862679736",
-            appId: "1:850862679736:web:eed66156c630c468f3764d",
-            measurementId: "G-481KY61310"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-
-        async function updateCounter() {
-            const counterRef = db.collection('counters').doc('visitorCount');
-
-            // Get current count
-            const snapshot = await counterRef.get();
-            let count = snapshot.exists ? snapshot.data().count : 0;
-
-            // Increment the count
-            count++;
-            await counterRef.set({ count: count });
-
-            // Update the displayed count
-            document.getElementById('visitor-counter').innerText = `Visitor Count: ${count}`;
-        }
-
-        window.onload = updateCounter;
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
